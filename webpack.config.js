@@ -44,7 +44,8 @@ var config = {
     new ExtractTextPlugin("src/client/css/styles.css"),
     new CopyWebpackPlugin([
       { from: 'src/client/favicon', to: 'src/client/favicon' },
-      { from: 'src/client/assets', to: 'src/client/assets' }
+      { from: 'src/client/assets', to: 'src/client/assets' },
+      { from: 'src/client/js', to: 'src/client/js' }
     ])
   ]
 };
