@@ -39,4 +39,4 @@ node_modules
 dist
 
 # other
-.DS_Store
+*/.DS_Store
