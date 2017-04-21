@@ -1,12 +1,33 @@
 import '../css/Content.css'
 import React, { Component } from 'react'
-import Scroll, { Element, scroller, Link } from 'react-scroll'
+import Scroll, { Element, scroller, Link, Events, scrollSpy } from 'react-scroll'
 
 import PortfolioItem from './PortfolioItem.js'
 
 class Content extends Component {
+  state={}
+
+  componentDidMount = () => {
+    Events.scrollEvent.register('begin', function(to, element) {
+      console.log("begin", arguments)
+    });
+
+    Events.scrollEvent.register('end', function(to, element) {
+      console.log("end", arguments)
+    });
+
+    scrollSpy.update();
+  }
+
+  componentWillUnmount = () => {
+    Events.scrollEvent.remove('begin')
+    Events.scrollEvent.remove('end')
+  }
+
   render () {
     const { linkAnimationProps } = this.props
+    console.log(linkAnimationProps)
+
     return (
       <div className="content">
         <Element name="photo-me" id="photo-me">
