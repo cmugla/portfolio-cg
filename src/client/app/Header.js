@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-export default class Header extends PureComponent {
+class Header extends PureComponent {
   render () {
     return (
       <div>
@@ -13,3 +13,5 @@ export default class Header extends PureComponent {
     )
   }
 }
+
+export default Header

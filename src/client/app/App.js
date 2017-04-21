@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 
 import Header from './Header.js'
-import Work from './Work.js'
+import Content from './Content.js'
 import ShoutOuts from './ShoutOuts.js'
 import Footer from './Footer.js'
 
@@ -11,7 +11,7 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Work />
+        <Content />
         <ShoutOuts />
         <Footer />
       </div>
