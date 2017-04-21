@@ -1,3 +1,4 @@
+import '../css/base.css'
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
@@ -15,6 +16,9 @@ export default class App extends Component {
       delay: 1000,
       activeClass: 'active',
     }
+
+    console.log("you're excellent");
+    console.log("\n.-        -.\n| ,-. ,-.  |\n| |   | |  |\n| `-' `-|  |\n`-     ,| -'\n       `'    ")
 
     return (
       <div>

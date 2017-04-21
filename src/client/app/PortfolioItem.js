@@ -34,7 +34,7 @@ class PortfolioItem extends Component {
     const { isOpen, subGallery } = this.state
 
     return (
-      <li onClick={subGallery ? this.handleOpen : this.goToProjectLink}>
+      <li className={classNames('portfolio-item', { 'show-project': isOpen })} onClick={subGallery ? this.handleOpen : this.goToProjectLink}>
         <img className="each thumbnail-img" src={thumbnailSrc} alt="" /><br/>
         {title}<br/>
         <em>{desc}</em>

@@ -1,3 +1,4 @@
+import '../css/Footer.css'
 import React, { PureComponent } from 'react'
 import Scroll, { Link } from 'react-scroll'
 

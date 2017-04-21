@@ -1,0 +1,58 @@
+body, #app {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  margin: 0 auto;
+  font-family: "Alegreya Sans", sans-serif; 
+  color: black;
+  text-align: center; }
+
+h1, h3 {
+  text-align: center;
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  text-transform: uppercase; }
+
+h3 {
+  font-weight: lighter; }
+
+a {
+  cursor: pointer;
+  color: black;
+  text-decoration: none; }
+  a:hover {
+    color: #59AFD5;
+    font-weight: bold; }
+
+em {
+  font-size: 12px; }
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  width: 90%;
+  margin: 0 auto 4em auto;
+  padding: 0; }
+
+#photo-me, #side-projects, #recent, #contact, #friends {
+  margin-bottom: 5em;
+  display: block;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 100%; }
+
+@media only screen and (min-width: 600px) {
+  p {
+    width: 70%;
+    margin: auto; }
+
+  .hideMobile {
+    display: block; }
+}

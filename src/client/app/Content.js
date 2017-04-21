@@ -1,3 +1,4 @@
+import '../css/Content.css'
 import React, { Component } from 'react'
 import Scroll, { Element, scroller, Link } from 'react-scroll'
 
