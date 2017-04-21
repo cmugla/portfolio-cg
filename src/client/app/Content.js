@@ -5,22 +5,15 @@ import PortfolioItem from './PortfolioItem.js'
 
 class Content extends Component {
   render () {
-    const linkAnimationProps = {
-      smooth: true,
-      offset: 50,
-      duration: 500, 
-      delay: 1000,
-      activeClass: 'active',
-    }
-
+    const { linkAnimationProps } = this.props
     return (
       <div className="content">
-        <Element name="photo-me">
+        <Element name="photo-me" id="photo-me">
           <img src="src/client/assets/2.jpg" className="circle" />
           <h2>Making websites and apps for those who need them...</h2>
           <p>Check out <Link to="side-projects" { ...linkAnimationProps }>some of my work</Link> and feel free to <Link to="contact" { ...linkAnimationProps }>reach out</Link> if you have a project in mind.</p>
         </Element>
-        <Element name="side-projects">
+        <Element name="side-projects" id="side-projects">
           <h2>Dynamic Sites &amp; Web/iOS Apps</h2>
           <p>Using an array of front-end and back-end techonologies, including Javascript/jQuery, React, React Native, EJS, ERB, Node.Js, Ruby on Rails, PSQL, MongoDB, and API's. </p>
           <ul className="gallery">
@@ -34,6 +27,7 @@ class Content extends Component {
               projectLink="http://cmugla.github.io/simon-game/simon/"
               projectLinkText="Play Game (hint: extra fun for large desktop monitors! Wait for it...)"
               parent="side-projects"
+              { ...{ linkAnimationProps } }
             />
             <PortfolioItem
               title="'Hood Guide"
@@ -46,6 +40,7 @@ class Content extends Component {
               projectLinkText="Open App"
               parent="side-projects"
               subGalleryId='hood-guide'
+              { ...{ linkAnimationProps } }
             />
             <PortfolioItem
               title="Do you like it, Kanye?"
@@ -58,6 +53,7 @@ class Content extends Component {
               projectLinkText="Open App"
               parent="side-projects"
               subGalleryId='approve-me-kanye'
+              { ...{ linkAnimationProps } }
             />
             <PortfolioItem
               title="Find Local, NY"
@@ -71,6 +67,7 @@ class Content extends Component {
               parent="side-projects"
               subGalleryId='farmers-markt-finder'
               subGalleryClass="farmer"
+              { ...{ linkAnimationProps } }
             />
             <PortfolioItem
               title="Curious Canuck"
@@ -83,10 +80,13 @@ class Content extends Component {
               projectLinkText="Open App"
               parent="side-projects"
               subGalleryId='curious-canuck'
+              { ...{ linkAnimationProps } }
             />
           </ul>
         </Element>
-        <Element name="recent">
+        <Element name="recent" id="recent">
+          <h2>Static Websites</h2>
+          <p>Informational websites built for small businesses in various industries. While designing, I have a heavy focus on content strategy and web performance, in order to enhance the user experience and display the brand identity in a clear and concise way.</p>
           <ul className="gallery">
             <PortfolioItem
               title="Flowers on the Vineyard"
@@ -135,7 +135,7 @@ class Content extends Component {
             />
           </ul>
         </Element>
-        <Element name="contact">
+        <Element name="contact" id="contact">
           <h2>Get in touch</h2>
           <ul className="list">
             <li><h3><a name="email" href="mailto:hello@celesteglavin.com?Subject=Hello%20(from%20the%20website)">hello@celesteglavin.com</a></h3></li>

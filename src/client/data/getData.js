@@ -90,7 +90,6 @@ const subGallery = {
 
 const getData = id => {
   if (subGallery[id]) {
-    console.log('getData', id, subGallery[id])
     return subGallery[id].data
   }
   return null

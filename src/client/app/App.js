@@ -8,12 +8,20 @@ import Footer from './Footer.js'
 
 export default class App extends Component {
   render () {
+    const linkAnimationProps = {
+      smooth: true,
+      offset: 50,
+      duration: 500, 
+      delay: 1000,
+      activeClass: 'active',
+    }
+
     return (
       <div>
         <Header />
-        <Content />
+        <Content { ...{ linkAnimationProps } } />
         <ShoutOuts />
-        <Footer />
+        <Footer { ...{ linkAnimationProps } } />
       </div>
     )
   }

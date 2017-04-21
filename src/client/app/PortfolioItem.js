@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
+import Scroll, { Link } from 'react-scroll'
 import getData from '../data/getData.js'
 
 class PortfolioItem extends Component {
@@ -10,7 +11,7 @@ class PortfolioItem extends Component {
 
   componentDidMount = () => {
     if (this.props.subGalleryId) {
-      const subGallery = this.getData(subGalleryId)
+      const subGallery = getData(this.props.subGalleryId)
       this.setState({ subGallery })
     }
   }
@@ -24,13 +25,17 @@ class PortfolioItem extends Component {
     this.setState({ isOpen: false })
   }
 
+  goToProjectLink = () => {
+    this.projectLink.click()
+  }
+
   render() {
-    const { title, desc, thumbnailSrc, tech, limits, githubLink, projectLink, projectLinkText, parent, subGalleryClass } = this.props
+    const { title, desc, thumbnailSrc, tech, limits, githubLink, projectLink, projectLinkText, parent, subGalleryId, subGalleryClass, linkAnimationProps } = this.props
     const { isOpen, subGallery } = this.state
 
     return (
-      <li onClick={this.handleOpen}>
-        <img className="each" src={thumbnailSrc} alt="" /><br/>
+      <li onClick={subGallery ? this.handleOpen : this.goToProjectLink}>
+        <img className="each thumbnail-img" src={thumbnailSrc} alt="" /><br/>
         {title}<br/>
         <em>{desc}</em>
         <div className={classNames('technologies', { bye: !isOpen })}>
@@ -40,24 +45,24 @@ class PortfolioItem extends Component {
           {
             projectLink
             &&
-            <a href={projectLink} target="_blank">{projectLinkText ? projectLinkText : 'Open App'}</a>
+            <a ref={node => { this.projectLink = node }} href={projectLink} target="_blank">{projectLinkText ? projectLinkText : 'Open App'}</a>
           }
           {
             subGallery
             &&
             <ul className={classNames('sub-gallery', { [subGalleryClass]: !!subGalleryClass })}>
-            {
-              subGallery.map(each => (
-                <li>
-                  {each.desc}<br/>
-                  <img src={each.image} alt=""/>
-                </li>
-              ))
-            }
+              {
+                subGallery.map((each, i) => (
+                  <li key={`sub-gallery-${i}`}>
+                    {each.desc}<br/>
+                    <img src={each.image} alt=""/>
+                  </li>
+                ))
+              }
+              <Link to={parent} { ...linkAnimationProps } ><button onClick={this.handleClose} className="close-project">Close</button></Link>
             </ul>
           }
         </div>
-        <Link to={parent} ><button onClick={this.handleClose} className="close-project">Close</button></Link>
       </li>
     )
   }

@@ -4,7 +4,7 @@ import Scroll, { Element } from 'react-scroll'
 class ShoutOuts extends PureComponent {
   render () {
     return (
-      <Element name="friends">
+      <Element name="friends" id="friends">
       	<h2>Shout Outs...</h2>
 	      <p>some projects from friends and family whom I have worked closely with</p><br/>
 	      <ul className="list">
