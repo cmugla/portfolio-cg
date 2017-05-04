@@ -44,8 +44,9 @@ class Content extends Component {
             {
               db
               &&
-              db.map(item => 
+              db.map((item, i) => 
                 <PortfolioItem
+                  key={`portfolio-item-${i}`}
                   item={item}
                   parent="side-projects"
                 />

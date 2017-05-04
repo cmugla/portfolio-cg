@@ -5,7 +5,6 @@ import Scroll, { Link } from 'react-scroll'
 class PortfolioItem extends Component {
   state = {
     isOpen: false,
-    subGallery: null,
   }
 
   handleOpen = () => {
@@ -22,12 +21,16 @@ class PortfolioItem extends Component {
   }
 
   render() {
-    const { item, parent } = this.props
-    const { isOpen, subGallery } = this.state
+    const { item, parent, linkAnimationProps } = this.props
+    const { isOpen } = this.state
+
+    if (!item) {
+      return null
+    }
 
     return (
       <li className={classNames('portfolio-item', { 'show-project': isOpen })} onClick={item.subGallery ? this.handleOpen : this.goToProjectLink}>
-        <img className="each thumbnail-img" src={thumbnailSrc} alt="" /><br/>
+        <img className="each thumbnail-img" src={item.thumbnailSrc} alt="" /><br/>
         {item.title}<br/>
         <em>{item.desc}</em>
         <div className={classNames('technologies', { bye: !isOpen })}>
@@ -36,23 +39,29 @@ class PortfolioItem extends Component {
           {
             item.links
             &&
-            item.links.map(link => {
+            item.links.map((link, i) => {
               if(link.goTo) {
                 return (
-                  <a ref={node => { this.projectLink = node }} href={link.url} target="_blank">{link.text}</a>
+                  <span key={`link-${i}`}>
+                    <a ref={node => { this.projectLink = node }} href={link.url} target="_blank">{link.text}</a>
+                    <br />
+                  </span>
                 )
               }
               return (
-                <a href={link.url} target="_blank">{link.text}</a>
+                <span key={`link-${i}`}>
+                  <a href={link.url} target="_blank">{link.text}</a>
+                  <br />
+                </span>
               )
             })
           }
           {
             item.subGallery
             &&
-            <ul className={classNames('sub-gallery', { [subGalleryClass]: !!subGalleryClass })}>
+            <ul className={classNames('sub-gallery', { [item.subGalleryClass]: !!item.subGalleryClass })}>
               {
-                irem.subGallery.map((each, i) => (
+                item.subGallery.map((each, i) => (
                   <li key={`sub-gallery-${i}`}>
                     {each.desc}<br/>
                     <img src={each.image} alt=""/>

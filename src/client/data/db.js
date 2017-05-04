@@ -24,7 +24,7 @@ const db = [
     limits: "best to use Chrome to open",
     links: [
       {
-        url: "https://github.com/cmugla/hood_guide",,
+        url: "https://github.com/cmugla/hood_guide",
         text: "See some code",
       },
       {
@@ -63,7 +63,7 @@ const db = [
         text: "Open App",
         goTo: true,
       }
-    ]
+    ],
     subGallery: [
       {
         image: 'src/client/assets/kanye.png',
