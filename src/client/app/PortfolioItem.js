@@ -1,19 +1,11 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import Scroll, { Link } from 'react-scroll'
-import getData from '../data/getData.js'
 
 class PortfolioItem extends Component {
   state = {
     isOpen: false,
     subGallery: null,
-  }
-
-  componentDidMount = () => {
-    if (this.props.subGalleryId) {
-      const subGallery = getData(this.props.subGalleryId)
-      this.setState({ subGallery })
-    }
   }
 
   handleOpen = () => {
@@ -30,29 +22,37 @@ class PortfolioItem extends Component {
   }
 
   render() {
-    const { title, desc, thumbnailSrc, tech, limits, githubLink, projectLink, projectLinkText, parent, subGalleryId, subGalleryClass, linkAnimationProps } = this.props
+    const { item, parent } = this.props
     const { isOpen, subGallery } = this.state
 
     return (
-      <li className={classNames('portfolio-item', { 'show-project': isOpen })} onClick={subGallery ? this.handleOpen : this.goToProjectLink}>
+      <li className={classNames('portfolio-item', { 'show-project': isOpen })} onClick={item.subGallery ? this.handleOpen : this.goToProjectLink}>
         <img className="each thumbnail-img" src={thumbnailSrc} alt="" /><br/>
-        {title}<br/>
-        <em>{desc}</em>
+        {item.title}<br/>
+        <em>{item.desc}</em>
         <div className={classNames('technologies', { bye: !isOpen })}>
-          <p><strong>Technologies: </strong>{tech}</p>
-          <p><strong>Limitations: </strong>{limits}</p>
-          <a href={githubLink} target="_blank">See some code</a>
+          <p><strong>Technologies: </strong>{item.tech}</p>
+          <p><strong>Limitations: </strong>{item.limits}</p>
           {
-            projectLink
+            item.links
             &&
-            <a ref={node => { this.projectLink = node }} href={projectLink} target="_blank">{projectLinkText ? projectLinkText : 'Open App'}</a>
+            item.links.map(link => {
+              if(link.goTo) {
+                return (
+                  <a ref={node => { this.projectLink = node }} href={link.url} target="_blank">{link.text}</a>
+                )
+              }
+              return (
+                <a href={link.url} target="_blank">{link.text}</a>
+              )
+            })
           }
           {
-            subGallery
+            item.subGallery
             &&
             <ul className={classNames('sub-gallery', { [subGalleryClass]: !!subGalleryClass })}>
               {
-                subGallery.map((each, i) => (
+                irem.subGallery.map((each, i) => (
                   <li key={`sub-gallery-${i}`}>
                     {each.desc}<br/>
                     <img src={each.image} alt=""/>
