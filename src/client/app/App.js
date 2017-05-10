@@ -12,9 +12,9 @@ export default class App extends Component {
     const linkAnimationProps = {
       spy: true,
       smooth: true,
-      offset: 50,
+      offset: 0,
       duration: 500, 
-      delay: 1000,
+      delay: 0,
       activeClass: 'active',
       isDynamic: true,
     }
