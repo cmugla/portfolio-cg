@@ -1,6 +1,6 @@
 import '../css/Content.css'
 import React, { Component } from 'react'
-import Scroll, { Element, scroller, Link, Events, scrollSpy } from 'react-scroll'
+import Scroll, { Element, Link } from 'react-scroll'
 
 import db from '../data/db.js'
 
@@ -9,21 +9,9 @@ import PortfolioItem from './PortfolioItem.js'
 class Content extends Component {
   state={}
 
-  componentDidMount = () => {
-    Events.scrollEvent.register('begin', function(to, element) {
-      console.log("begin", arguments)
-    });
-
-    Events.scrollEvent.register('end', function(to, element) {
-      console.log("end", arguments)
-    });
-
-    scrollSpy.update();
-  }
-
-  componentWillUnmount = () => {
-    Events.scrollEvent.remove('begin')
-    Events.scrollEvent.remove('end')
+  handleClose = () => {
+    // TODO > UX decision: should this be global and close all open?
+    this.setState({ closeContainers: true })
   }
 
   render () {
