@@ -62,7 +62,7 @@ button:hover {
 .portfolio-item:hover .thumbnail-img {
   filter: none;
   -webkit-filter: grayscale(0%);
-  transition: all 100ms ease-in;
+  transition: all 300ms ease-in;
 }
 
 .show-project {
