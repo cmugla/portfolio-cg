@@ -150,7 +150,7 @@ const db = {
           goTo: true,
         }
       ],
-      subGalleryId: [
+      subGallery: [
         {
           image: 'src/client/assets/CuriousCanuck_Home.png',
           desc: 'Homepage'
