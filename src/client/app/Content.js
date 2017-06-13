@@ -27,7 +27,7 @@ class Content extends Component {
         </Element>
         <Element name="side-projects" id="side-projects">
           <h2>Dynamic Sites &amp; Web/iOS Apps</h2>
-          <p>Using an array of front-end and back-end techonologies, including Javascript/jQuery, React, React Native, EJS, ERB, Node.Js, Ruby on Rails, PSQL, MongoDB, and API's. </p>
+          <p>Using an array of front-end and back-end techonologies, including Javascript/jQuery, React, React Native, EJS, ERB, Node.Js, Ruby on Rails, PSQL, MongoDB, and API&#8217;s. </p>
           <ul className="gallery">
             {
               db
