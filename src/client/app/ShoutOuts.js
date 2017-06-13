@@ -12,8 +12,8 @@ class ShoutOuts extends PureComponent {
 	        <li><a name="raglan" href="http://raglan.nyc/" target="_blank">raglan<br/><em>Collaborative design and development firm, NYC</em></a></li>
 	        <li><a name="deca" href="http://decae.com/" target="_blank">DECA, Inc.<br/><em>Design-build firm, Martha&#8217;s Vineyard</em></a></li>
 	        <li><a name="ben" href="https://constantsmilesmusic.com/" target="_blank">Constant Smiles Music<br/><em>Musician and music lover, Earth</em></a></li>
-	        <li><a name="wvvy" href="http://wvvy.org/" target="_blank">wVvy 96.7 lpfm<br/><em>Martha's Vineyard Community Radio</em></a></li>
-	        <li><a name="peacegate" href="http://peacegate.org/" target="_blank">Peacegate DOJO<br/><em>sacred hall of learning, Martha's Vineyard</em></a></li>
+	        <li><a name="wvvy" href="http://wvvy.org/" target="_blank">wVvy 96.7 lpfm<br/><em>Martha&#8217;s Vineyard Community Radio</em></a></li>
+	        <li><a name="peacegate" href="http://peacegate.org/" target="_blank">Peacegate DOJO<br/><em>sacred hall of learning, Martha&#8217;s Vineyard</em></a></li>
 	      </ul>
       </Element>
     )
